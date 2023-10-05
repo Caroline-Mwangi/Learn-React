@@ -1,34 +1,38 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function Students () {
-    //useState is used to monitor the state of an element
-    const [students, setStudents] = useState();
-    
-    useEffect(() => {
+function Students() {
+  //useState is used to monitor the state of an element
+  const [students, setStudents] = useState();
 
-        fetch("http://127.0.0.1:8000/api/students/")
-        .then((response) => response.json())
-        .then((data) => {
-            setStudents(data.students);
-        });
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/students/")
+      .then((response) => response.json())
+      .then((data) => {
+        setStudents(data.students);
+      });
+  }, []);
 
-    }, []);
+  return (
+    <>
+      <h1>STUDENTS</h1>
 
-    return <>
-
-        <p>{students?students.map((student) => {
-            return <>
-            
-                <p>Name: {student.name}</p>
-                <p>Email: {student.email}</p>
-                <p>Session: {student.session}</p>
-                <br></br>
-            
-            </>
-        })
-        :null}</p>
-
+      <p>
+        {students
+          ? students.map((student) => {
+              return (
+                <>
+                  <p>Name: {student.name}</p>
+                  <Link to={"/students/" + student.id}>View Details</Link>
+                  <br></br>
+                  <br></br>
+                </>
+              );
+            })
+          : null}
+      </p>
     </>
+  );
 }
 
 export default Students;
