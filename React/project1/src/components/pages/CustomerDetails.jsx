@@ -7,7 +7,7 @@ function CustomerDetails() {
   const [custo, setCusto] = useState();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/customers/" + id)
+    fetch("http://127.0.0.1:8000/test/api/customers/" + id)
       .then((response) => response.json())
       .then((data) => {
         setCusto(data.custo);

@@ -6,7 +6,7 @@ app_name = "app1"
 urlpatterns = [
     path('', views.home, name="home"),
     path('about/', views.about, name="about"),
-    path('api/customers/', views.customers, name="customers"),
+    path('api/customers', views.customers, name="customers"),
     path('api/customers/<int:id>/', views.details, name="details")
     
 ]
