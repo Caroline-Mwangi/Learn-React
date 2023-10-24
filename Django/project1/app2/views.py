@@ -29,13 +29,13 @@ def students(request):
     if request.method == 'GET':
         data = Student.objects.all()
         serializer = StudentSerializer(data, many=True)
-        return Response({'students' : serializer.data})
+        return Response({'customers' : serializer.data})
 
     elif request.method == 'POST':
         serializer = StudentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'student': serializer.data}, status=status.HTTP_201_CREATED)
+            return Response({'customer': serializer.data}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
         
@@ -51,7 +51,7 @@ def details(request, id):
     
     if request.method == 'GET':
         serializer = StudentSerializer(data)
-        return Response({'student': serializer.data})
+        return Response({'customer': serializer.data})
     elif request.method =='DELETE':
         data.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -59,5 +59,5 @@ def details(request, id):
         serializer = StudentSerializer(data, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'student': serializer.data}, status=status.HTTP_200_OK)
+            return Response({'customer': serializer.data}, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_400_BAD_REQUEST)

@@ -71,7 +71,7 @@ function Home() {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="success">Understood</Button>
+              <Button variant="primary">Save</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>
