@@ -28,17 +28,33 @@ export default function ProductDetails() {
 
   return (
     <div>
-      <h2>Product Details </h2>
+      <h1 class="text-3xl font-bold ">Product Details</h1>
       <hr></hr>
-      <div className="full-student-detail">
+      <br />
+      <div className="full-student-detail ms-3">
         <img src={product.image} height="100" width="80" />
-        <p><b>Name: </b>{product.name}</p>
-        <p><b>Price: </b>{product.price}</p>
-        <p><b>Description: </b>{product.description}</p>
+        <p>
+          <b>Name: </b>
+          {product.name}
+        </p>
+        <p>
+          <b>Price: </b>
+          {product.price}
+        </p>
+        <p>
+          <b>Description: </b>
+          {product.description}
+        </p>
       </div>
 
       <Link
-        className="btn btn-danger"
+        className="btn btn-primary ms-3"
+        to={`/products/${product.id}/update/`}
+      >
+        Update
+      </Link>
+      <Link
+        className="btn btn-danger ms-3"
         onClick={() => deleteProduct(product.id)}
       >
         Delete

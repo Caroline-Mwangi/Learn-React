@@ -5,10 +5,10 @@ import "../App.css";
 import { NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "Products", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Customers", href: "/customers" },
+  { name: "Products", href: "/products" },
   { name: "Add Products", href: "/add-products" },
 ];
 
@@ -103,8 +103,6 @@ export default function NavBar(props) {
       </Disclosure>
 
       {props.children}
-
-     
     </>
   );
 }

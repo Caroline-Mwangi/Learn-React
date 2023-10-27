@@ -16,16 +16,23 @@ function Product() {
     <>
       <h1 class="text-3xl font-bold ">All Products</h1>
       <br></br>
-
-      {products.map((product) => (
-        <>
-          <img src={product.image} width="80"></img>
-          <p><b>Name:</b> {product.name}</p>
-          <a href={product.id} className="text-primary">Details</a>
-          <br></br>
-          <br></br>
-        </>
-      ))}
+      <div className="row p-5 ms-5">
+        {products.map((product) => (
+          <>
+            <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+              <img src={product.image} width="80"></img>
+              <p>
+                <b>Name:</b> {product.name}
+              </p>
+              <a href={"/products/" + product.id} className="text-primary">
+                Details
+              </a>
+              <br></br>
+              <br></br>
+            </div>
+          </>
+        ))}
+      </div>
     </>
   );
 }

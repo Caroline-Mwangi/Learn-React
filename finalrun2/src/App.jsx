@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import Product from "./components/Product";
 import ProductDetails from "./components/ProductDetails";
 import AddProducts from "./components/AddProducts"
+import UpdateProduct from "./components/UpdateProduct";
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
       <BrowserRouter>
         <NavBar>
           <Routes>
-            <Route path="/" element={<Product />} />
+            <Route path="/products" element={<Product />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/customers/:id" element={<Customer />} />
             <Route path="/add-products" element={<AddProducts />} />
-            <Route path="/:id" element={<ProductDetails />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
+            <Route path="/products/:id/update" element={<UpdateProduct />} />
             <Route path="/notfound" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
